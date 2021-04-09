@@ -236,8 +236,8 @@ class PeerConnectionManager {
 			}
 			virtual void OnIceConnectionChange(webrtc::PeerConnectionInterface::IceConnectionState state) {
 				RTC_LOG(INFO) << __PRETTY_FUNCTION__ << " state:" << state  << " peerid:" << m_peerid;
-				if ( (state == webrtc::PeerConnectionInterface::kIceConnectionFailed)
-				   ||(state == webrtc::PeerConnectionInterface::kIceConnectionClosed) )
+				if ( /*(state == webrtc::PeerConnectionInterface::kIceConnectionFailed)
+				   ||*/ (state == webrtc::PeerConnectionInterface::kIceConnectionClosed) )
 				{ 
 					m_iceCandidateList.clear();
 					if (!m_deleting) {
